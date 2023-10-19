@@ -24,7 +24,7 @@ public class Robo {
 		return posicao;
 	}
 
-	//Sensoriamento
+	//sensoriamento-----------------
 	public Celula obterPosicao() {
 		//logica
 		return posicao;
@@ -39,9 +39,25 @@ public class Robo {
 	      //logica
 		return rugosidade;
 	}
-	
-	
-	
+
+
+	//movimentacao---------------
+	public void andar() {
+        	//logica andar
+    	}
+
+    	public void moverParaEsquerda() {
+        	//logica esquerda
+    	}
+
+    	public void moverParaDireita() {
+        	//logica direita
+    	}
+
+	//prospecção-----------------
+    	public void sonda() {
+        	//logica prospecção
+   	}
 	
 
 }
