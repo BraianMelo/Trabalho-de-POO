@@ -16,13 +16,13 @@ public class Robo {
 		this.tempoSegundos = tempoSegundos;
 	}
 	
-	public void getNome() {
+	/*public void getNome() {
 		return nome;
 	}
 
 	public void getPosicao() {
 		return posicao;
-	}
+	}*/
 
 	//sensoriamento-----------------
 	public Celula obterPosicao() {
