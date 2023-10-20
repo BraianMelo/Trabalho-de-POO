@@ -20,6 +20,7 @@ public class Celula {
 	}
 
 	public float getConcentracaoHelio() {
+		concentracaoHelio = random.nextFLoat;
 		return concentracaoHelio;
 	}
 
