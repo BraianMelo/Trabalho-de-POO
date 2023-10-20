@@ -6,10 +6,15 @@ public class Terreno {
 	
 	static final int LINHAS = 5;
 	static final int COLUNAS = 5;
+	private float[][] concenHelio3;
 	
 	public Celula[][] matrizTerreno =  new Celula[LINHAS][COLUNAS];
 		
 	public Terreno() {
+
+		this.LINHAS = largura;
+		this.COMPRIMENTO = altura;
+		this.concenHelio3 = new float[largura][altura];
 		
 		Random geradorDeNumeros = new Random();
 		
@@ -31,6 +36,21 @@ public class Terreno {
 		
 	}
 	
-	
+	public void DentroLimite(int x, int y){
 
+		x >= 0 && x <= largura && y >= 0 && y <= altura;
+		
+	}
+
+	public void DefiConcHelio(int x, int y){
+		if(x >= 0 && x <= largura && y >= 0 && y <= altura){
+			concenHelio3 = concentracao;
+		
+	}
+	
+	public void ObterConcHelio(int x, int y){
+		if(x >= 0 && x <= largura && y >= 0 && y <= altura){
+			return concenHelio3[x][y];
+		
+	}
 }
