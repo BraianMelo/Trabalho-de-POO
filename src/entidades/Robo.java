@@ -20,8 +20,7 @@ public class Robo {
 		return nome;
 	}
 
-	public Celula obterPosicao() {
-		//logica
+	public Celula obterPosicao() { //public robo ou public celula ?
 		return posicao;
 	}
 	
@@ -36,13 +35,14 @@ public class Robo {
 		return rugosidade;
 	}
 
-	*/
+	*/ //rugosidade é da celula
 
 	//movimentacao---------------
 	public void andar(){
         	int coordenadaX = -1;
         	int coordenadaY = -1;
-        	
+        	if(sonda == 1) //o robo em prospeccao não pode se movimentar
+			return;
         	switch(direcao) {
         		case CIMA:
         			coordenadaX = posicao.getCoordenadaX();
@@ -79,6 +79,8 @@ public class Robo {
     	}
 
     	public void virarParaEsquerda() {
+		if(sonda == 1)//o robo em prospeccao não pode se movimentar
+			return;
     		switch(direcao) {
 	    		case CIMA:
 	    			direcao = Direcoes.ESQUERDA;
@@ -99,6 +101,8 @@ public class Robo {
     	}
     	
     	public void virarParaDireita() {
+		if(sonda == 1)//o robo em prospeccao não pode se movimentar
+			return;
     		switch(direcao) {
 	    		case CIMA:
 	    			direcao = Direcoes.DIREITA;
