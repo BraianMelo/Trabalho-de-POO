@@ -31,7 +31,7 @@ public class Celula {
 		return concentracaohelio;
 	}
 	
-	public VolumedeExtracao(Celula concentracaoHelio){
+	public VolumedeExtracao(Celula concentracaohelio){
 		volumeextracao = concetracaohelio*1.5;
 		return volumeextracao;
 	}
@@ -41,6 +41,7 @@ public class Celula {
 	}
 
 	public float getRugosidade() {
+		rugosidade = volumeetracao * 1.6;
 		return rugosidade;
 	}
 	
