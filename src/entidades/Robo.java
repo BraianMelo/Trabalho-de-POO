@@ -20,10 +20,25 @@ public class Robo {
 		return nome;
 	}
 
+	//sensoriamento
 	public Celula obterPosicao() { //public robo ou public celula ?
 		return posicao;
 	}
-	
+
+	public Celula obterConcetracao() {
+		//concentracao de helio da celula atual
+		return concentracaoHelio;
+	}
+
+	public Celula obterRugosidade() {
+		//rugosidade da celula atual
+		return rugosidade;
+	}
+
+	public Celula obterTempo() {
+		//tempo desde o inicio da prospeccao
+		return tempoSegundos;
+	}
 	/*
 	public float obterConcentracao() {
 	       //logica
@@ -37,11 +52,13 @@ public class Robo {
 
 	*/ //rugosidade é da celula
 
+
+
 	//movimentacao---------------
 	public void andar(){
         	int coordenadaX = -1;
         	int coordenadaY = -1;
-        	if(sonda == 1) //o robo em prospeccao não pode se movimentar
+        	if(sondar == 1) //o robo em prospeccao não pode se movimentar
 			return;
         	switch(direcao) {
         		case CIMA:
@@ -79,7 +96,7 @@ public class Robo {
     	}
 
     	public void virarParaEsquerda() {
-		if(sonda == 1)//o robo em prospeccao não pode se movimentar
+		if(sondar == 1)//o robo em prospeccao não pode se movimentar
 			return;
     		switch(direcao) {
 	    		case CIMA:
@@ -100,8 +117,8 @@ public class Robo {
     		}
     	}
     	
-    	public void virarParaDireita() {
-		if(sonda == 1)//o robo em prospeccao não pode se movimentar
+    	public void virarParaDireita() { //tem que ter o tempo de execução de acordo com a rugosidade
+		if(sondar == 1)//o robo em prospeccao não pode se movimentar
 			return;
     		switch(direcao) {
 	    		case CIMA:
