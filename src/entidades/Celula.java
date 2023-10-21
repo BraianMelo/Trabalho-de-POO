@@ -5,7 +5,7 @@ public class Celula {
 	private int coordenadaX;
 	private int coordenadaY;
 	
-	private float concentracaoHelio;
+	private float concentracaohelio;
 	private float coeficienteErro;
 	private float rugosidade;
 	
@@ -28,7 +28,12 @@ public class Celula {
 	}
 
 	public float getConcentracaoHelio() {
-		return concentracaoHelio;
+		return concentracaohelio;
+	}
+	
+	public VolumedeExtracao(Celula concentracaoHelio){
+		volumeextracao = concetracaohelio*1.5;
+		return volumeextracao;
 	}
 
 	public float getCoeficienteErro() {
