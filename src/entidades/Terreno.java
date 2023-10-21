@@ -20,12 +20,12 @@ public class Terreno {
 		for(int x = 0; x < LINHAS; ++x) {
 			for(int y = 0; y < COLUNAS; ++y) {
 				
-				float concentracaoHelio = geradorDeNumeros.nextFloat(1);
+				/*float concentracaoHelio = geradorDeNumeros.nextFloat(1);
 				float coeficienteErro = geradorDeNumeros.nextFloat(0,1);
 				float rugosidade = geradorDeNumeros.nextFloat(1);
 				
 				matrizTerreno[x][y] = new Celula(x, y,
-						concentracaoHelio, coeficienteErro, rugosidade);
+						concentracaoHelio, coeficienteErro, rugosidade);*/
 
 				
 			}
@@ -42,7 +42,7 @@ public class Terreno {
 		roboresNoTerreno.remove(robo);
 	}
 	
-	/*OBS: nao fazia sentido o robo saber/receber o Terreno, então as funcoes 
+	/*OBS: nao fazia sentido o robo saber/receber o Terreno, entÃ£o as funcoes 
 	viraram static para o robo conseguir acessar*/
 	
 	public static Celula getCelula(int coordenadaX, int coordenadaY) {
