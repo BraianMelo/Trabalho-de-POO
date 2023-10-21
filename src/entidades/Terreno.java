@@ -22,10 +22,10 @@ public class Terreno {
 				
 				/*float concentracaoHelio = geradorDeNumeros.nextFloat(1);
 				float coeficienteErro = geradorDeNumeros.nextFloat(0,1);
-				float rugosidade = geradorDeNumeros.nextFloat(1);
+				float rugosidade = geradorDeNumeros.nextFloat(1);*/
 				
 				matrizTerreno[x][y] = new Celula(x, y,
-						concentracaoHelio, coeficienteErro, rugosidade);*/
+						concentracaoHelio, coeficienteErro, rugosidade);
 
 				
 			}
