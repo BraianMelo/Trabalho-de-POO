@@ -1,5 +1,7 @@
 package entidades;
 
+import java.util.Random;
+
 public class Celula {
 	
 	private int coordenadaX;
@@ -44,7 +46,7 @@ public class Celula {
 	}
 
 	public float getRugosidade() {
-		//rugosidade = volumeExtracao * 1.6;
+		
 		return rugosidade;
 	}
 	
