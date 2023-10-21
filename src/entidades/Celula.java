@@ -33,21 +33,26 @@ public class Celula {
 	}
 
 	public float getConcentracaoHelio() {
+		Random gerador = new Random();
+		concentracaoHelio = gerador.nextFloat();
 		return concentracaoHelio;
-	}
-	
-	public VolumeDeExtracao(){
-		volumeExtracao = concetracaoHelio*1.5;
-		return volumeExtracao;
 	}
 
 	public float getCoeficienteErro() {
+		Random gerador = new Random();
+		coeficienteErro = gerador.nextGaussian();
 		return coeficienteErro;
 	}
 
 	public float getRugosidade() {
-		
+		Random gerador = new Random();
+		rugosidade = gerador.nextGaussian();
 		return rugosidade;
+	}
+
+	public VolumeDeExtracao(){
+		volumeExtracao = concetracaoHelio*1.5;
+		return volumeExtracao;
 	}
 	
 	@Override
