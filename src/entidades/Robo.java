@@ -16,7 +16,7 @@ public class Robo {
 		this.direcao = direcao;
 	}
 	
-	public String getNome() {
+	public String getobterNome() {
 		return nome;
 	}
 
@@ -125,7 +125,7 @@ public class Robo {
     	
 
 	//prospecção-----------------
-    	public void sonda() {
+    	public void sondar() {
         	//logica prospecção
    	}
 
