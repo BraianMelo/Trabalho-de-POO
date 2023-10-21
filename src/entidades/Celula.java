@@ -18,9 +18,16 @@ public class Celula {
 		this.coeficienteErro = coeficienteErro;
 		this.rugosidade = rugosidade;
 	}
+	
+	public int getCoordenadaX() {
+		return coordenadaX;
+	}
+
+	public int getCoordenadaY() {
+		return coordenadaY;
+	}
 
 	public float getConcentracaoHelio() {
-		concentracaoHelio = random.nextFLoat;
 		return concentracaoHelio;
 	}
 

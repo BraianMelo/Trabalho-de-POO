@@ -1,56 +1,62 @@
 package entidades;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Terreno {
 	
-	static final int LINHAS = 5;
-	static final int COLUNAS = 5;
-	private float[][] concenHelio3;
+	private static final int LINHAS = 5;
+	private static final int COLUNAS = 5;
 	
-	public Celula[][] matrizTerreno =  new Celula[LINHAS][COLUNAS];
+	private List<Robo> roboresNoTerreno = new ArrayList<>();
+	
+	public static Celula[][] matrizTerreno =  new Celula[LINHAS][COLUNAS];
 		
 	public Terreno() {
-
-		this.LINHAS = largura;
-		this.COMPRIMENTO = altura;
-		this.concenHelio3 = new float[largura][altura];
 		
 		Random geradorDeNumeros = new Random();
 		
-		for(int i = 0; i < LINHAS; ++i) {
-			for(int j = 0; j < COLUNAS; ++j) {
+		for(int x = 0; x < LINHAS; ++x) {
+			for(int y = 0; y < COLUNAS; ++y) {
 				
 				float concentracaoHelio = geradorDeNumeros.nextFloat(1);
 				float coeficienteErro = geradorDeNumeros.nextFloat(0,1);
 				float rugosidade = geradorDeNumeros.nextFloat(1);
 				
-				
-				matrizTerreno[i][j] = new Celula(i, j,
+				matrizTerreno[x][y] = new Celula(x, y,
 						concentracaoHelio, coeficienteErro, rugosidade);
-				
-				System.out.println(matrizTerreno[i][j]);
+
 				
 			}
 		}
-		
 	}
 	
-	public void DentroLimite(int x, int y){
-
-		x >= 0 && x <= largura && y >= 0 && y <= altura;
-		
-	}
-
-	public void DefiConcHelio(int x, int y){
-		if(x >= 0 && x <= largura && y >= 0 && y <= altura){
-			concenHelio3 = concentracao;
-		
+	//Lista de Robores
+	
+	public void addRoboNaLista(Robo robo) {
+		roboresNoTerreno.add(robo);
 	}
 	
-	public void ObterConcHelio(int x, int y){
-		if(x >= 0 && x <= largura && y >= 0 && y <= altura){
-			return concenHelio3[x][y];
-		
+	public void removerRoboNaLista(Robo robo) {
+		roboresNoTerreno.remove(robo);
 	}
+	
+	/*OBS: nao fazia sentido o robo saber/receber o Terreno, então as funcoes 
+	viraram static para o robo conseguir acessar*/
+	
+	public static Celula getCelula(int coordenadaX, int coordenadaY) {
+		return matrizTerreno[coordenadaX][coordenadaY];
+	}
+	
+	public static boolean estaDentroDoLimite(int coordenadaX, int coordenadaY){
+		if((coordenadaX >= 0) && (coordenadaX < LINHAS))
+			if((coordenadaY >= 0) && (coordenadaY < COLUNAS))
+				return true;
+		
+		return false;
+	}
+	
+	
+
 }
