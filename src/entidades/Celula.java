@@ -8,15 +8,18 @@ public class Celula {
 	private float concentracaoHelio;
 	private float coeficienteErro;
 	private float rugosidade;
+
+	private float volumeExtracao;
 	
 	public Celula() {}
 
-	public Celula(int coordenadaX, int coordenadaY, float concentracaoHelio, float coeficienteErro, float rugosidade) {
+	public Celula(int coordenadaX, int coordenadaY, float concentracaoHelio, float coeficienteErro, float rugosidade, float volumeExtracao) {
 		this.coordenadaX = coordenadaX;
 		this.coordenadaY = coordenadaY;
 		this.concentracaoHelio = concentracaoHelio;
 		this.coeficienteErro = coeficienteErro;
 		this.rugosidade = rugosidade;
+		this.volumeExtracao = volumeExtracao;
 	}
 	
 	public int getCoordenadaX() {
@@ -31,9 +34,9 @@ public class Celula {
 		return concentracaoHelio;
 	}
 	
-	public VolumedeExtracao(){
-		volumeextracao = concetracaoHelio*1.5;
-		return volumeextracao;
+	public VolumeDeExtracao(){
+		volumeExtracao = concetracaoHelio*1.5;
+		return volumeExtracao;
 	}
 
 	public float getCoeficienteErro() {
@@ -41,7 +44,7 @@ public class Celula {
 	}
 
 	public float getRugosidade() {
-		//rugosidade = volumeextracao * 1.6;
+		//rugosidade = volumeExtracao * 1.6;
 		return rugosidade;
 	}
 	
