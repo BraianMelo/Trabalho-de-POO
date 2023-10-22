@@ -51,7 +51,7 @@ public class Celula {
 	}
 
 	public VolumeDeExtracao(){
-		volumeExtracao = concetracaoHelio*1.5;
+		volumeExtracao = concetracaoHelio*1.5f;
 		return volumeExtracao;
 	}
 	
