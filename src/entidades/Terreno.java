@@ -9,7 +9,7 @@ public class Terreno {
 	private static final int LINHAS = 5;
 	private static final int COLUNAS = 5;
 	
-	private List<Robo> roboresNoTerreno = new ArrayList<>();
+	private List<Robo> robosNoTerreno = new ArrayList<>();
 	
 	public static Celula[][] matrizTerreno =  new Celula[LINHAS][COLUNAS];
 		
@@ -32,14 +32,14 @@ public class Terreno {
 		}
 	}
 	
-	//Lista de Robores
+	//Lista de Robos
 	
 	public void addRoboNaLista(Robo robo) {
-		roboresNoTerreno.add(robo);
+		robosNoTerreno.add(robo);
 	}
 	
 	public void removerRoboNaLista(Robo robo) {
-		roboresNoTerreno.remove(robo);
+		robosNoTerreno.remove(robo);
 	}
 	
 	/*OBS: nao fazia sentido o robo saber/receber o Terreno, então as funcoes 
