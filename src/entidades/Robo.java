@@ -7,13 +7,14 @@ public class Robo {
 	private Direcoes direcao;
 	
 	private int tempoSegundos;
-	
+	private float barris;
 
-	public Robo(String nome, Celula posicao, int tempoSegundos, Direcoes direcao) {
+	public Robo(String nome, Celula posicao, int tempoSegundos, Direcoes direcao, float barris) {
 		this.nome = nome;
 		this.posicao = posicao;
 		this.tempoSegundos = tempoSegundos;
 		this.direcao = direcao;
+		this.barris = barris;
 	}
 	
 	public String getobterNome() {
@@ -142,8 +143,16 @@ public class Robo {
     	
 
 	//prospecção-----------------
-    	public void sondar() {
-        	//logica prospecção
+    	public void sondar(Celula tempoSegundos, Celula volumeExtracao) {
+		try {
+		Thread.sleep(tempoSegundos.getValor());
+		barris += volumeExtracao.getValor();
+		}
+	} 
+	//catch (InterruptedException e) {
+   	 // Lida com exceção, se necessário
+}
+
    	}
 
 }
