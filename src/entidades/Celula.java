@@ -8,18 +8,20 @@ public class Celula {
 	private int coordenadaY;
 	
 	private float concentracaoHelio;
-	private float coeficienteErro;
+	private float coeficienteErroMax;
+	private float coeficienteErroMin;
 	private float rugosidade;
 
 	private float volumeExtracao;
 	
 	public Celula() {}
 
-	public Celula(int coordenadaX, int coordenadaY, float concentracaoHelio, float coeficienteErro, float rugosidade, float volumeExtracao) {
+	public Celula(int coordenadaX, int coordenadaY, float concentracaoHelio, float coeficienteErroMax, float coeficienteErroMax, float rugosidade, float volumeExtracao) {
 		this.coordenadaX = coordenadaX;
 		this.coordenadaY = coordenadaY;
 		this.concentracaoHelio = concentracaoHelio;
-		this.coeficienteErro = coeficienteErro;
+		this.coeficienteErroMax = coeficienteErroMax;
+		this.coeficienteErroMin = coeficienteErroMin;
 		this.rugosidade = rugosidade;
 		this.volumeExtracao = volumeExtracao;
 	}
@@ -38,10 +40,17 @@ public class Celula {
 		return concentracaoHelio;
 	}
 
-	public float getCoeficienteErro() {
+	/*public float getCoeficienteErro() {
 		Random gerador = new Random();
 		coeficienteErro = gerador.nextGaussian();
 		return coeficienteErro;
+	}*/
+	public float getCoeficienteErroMin() {
+	        return coeficienteErroMin;
+	}
+	
+	public float getCoeficienteErroMax() {
+	        return coeficienteErroMax;
 	}
 
 	public float getRugosidade() {
@@ -61,7 +70,7 @@ public class Celula {
 		
 		sb.append("["+coordenadaX+","+coordenadaY+"]: ");
 		sb.append(String.format("%.2f", concentracaoHelio)+", ");
-		sb.append(String.format("%.2f", coeficienteErro)+", ");
+		//sb.append(String.format("%.2f", coeficienteErro)+", "); AJUSTAR
 		sb.append(String.format("%.2f", rugosidade));
 		
 		return sb.toString();
