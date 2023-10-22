@@ -14,7 +14,7 @@ public class Robo {
 		this.posicao = posicao;
 		this.tempoSegundos = tempoSegundos;
 		this.direcao = direcao;
-		this.barris = barris;
+		this.barris = barris = 0;
 	}
 	
 	public String getobterNome() {
