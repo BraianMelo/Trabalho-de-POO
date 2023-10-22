@@ -57,6 +57,11 @@ public class Terreno {
 		return false;
 	}
 	
-	
+	public static boolean comparaPosicao(Robo roboa, Robo robob) { //dois robos não podem ocupar a mesma posição
+		if(roboa.coordenadaX != robob.coordenadaX)
+			if(roboa.coordenadaY != robob.coordenadaY)
+				return true;
 
+		return false;
+	}
 }
