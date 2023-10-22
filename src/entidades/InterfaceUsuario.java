@@ -24,10 +24,10 @@ public class InterfaceUsuario {
         boolean jogoRodando = true; 
         while (jogoRodando) {
             System.out.println("Escolha uma ação para " + roboa.getNome() + ":");
-            System.out.println("w - Andar para frente");
-            System.out.println("a - Girar para a esquerda");
-            System.out.println("d - Girar para a direita");
-            System.out.println("r - Iniciar prospecção");
+            System.out.println("w - Andou para frente");
+            System.out.println("a - Girou para a esquerda");
+            System.out.println("d - Girou para a direita");
+            System.out.println("r - Iniciou prospecção");
 
             int movimento = scanner.nextInt();
 
@@ -56,7 +56,7 @@ public class InterfaceUsuario {
         scanner.close();
     }
 //
-    public static void exibirInformacoesRobo(Robo roboa) {
+    public static void exibirInformacoesRoboa(Robo roboa) {
         System.out.println("Nome da Equipe: " + roboa.getobterNome());
         System.out.println("Posição do robô: " + roboa.obterPosicao());
         System.out.println("Nível de concentração de Hélio-3: " + roboa.obterConcetracao());
@@ -65,7 +65,7 @@ public class InterfaceUsuario {
         System.out.println("Quantidade de barris de Hélio-3 coletados: " + roboa.obterBarris());
       
       
-      public static void exibirInformacoesRobo(Robo robob) {
+      public static void exibirInformacoesRobob(Robo robob) {
         System.out.println("Nome da Equipe: " + robob.getobterNome());
         System.out.println("Posição do robô: " + robob.obterPosicao());
         System.out.println("Nível de concentração de Hélio-3: " + robob.obterConcetracao());
