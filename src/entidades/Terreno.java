@@ -7,7 +7,7 @@ import java.util.Random;
 public class Terreno {
 	
 	private static final int LINHAS = 5;
-	private static final int COLUNAS = 5;
+	private static final int COLUNAS = 6;
 	
 	private List<Robo> robosNoTerreno = new ArrayList<>();
 	
