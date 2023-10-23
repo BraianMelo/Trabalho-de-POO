@@ -4,6 +4,5 @@ public enum Direcoes {
 	CIMA, 
 	BAIXO,
 	DIREITA,
-	ESQUERDA,
-	VOAFILHAO
+	ESQUERDA
 }
