@@ -148,11 +148,28 @@ public class Robo {
 		Thread.sleep(tempoSegundos.getValor());
 		barris += volumeExtracao.getValor();
 		}
-	} 
-	//catch (InterruptedException e) {
-   	 // Lida com exceção, se necessário
-}
+		//catch (InterruptedException e) {
+   	 	// Lida com exceção, se necessário
+		//}
 
    	}
+
+	public boolean celulasAoRedorEstaoSendoProspecadas() {
+    		int coordenadaX = posicao.getCoordenadaX();
+		int coordenadaY = posicao.getCoordenadaY();
+	
+	    	// Verificar as células nas direções adjacentes (CIMA, BAIXO, DIREITA, ESQUERDA)
+	    	Celula celulaCima = Terreno.getCelula(coordenadaX, coordenadaY - 1);
+	    	Celula celulaBaixo = Terreno.getCelula(coordenadaX, coordenadaY + 1);
+	    	Celula celulaDireita = Terreno.getCelula(coordenadaX + 1, coordenadaY);
+	    	Celula celulaEsquerda = Terreno.getCelula(coordenadaX - 1, coordenadaY);
+	
+	   	 // Verificar se alguma das células adjacentes está sendo prospectada
+	   	 return celulaCima != null && celulaCima.estaSendoProspecada() ||
+	           	celulaBaixo != null && celulaBaixo.estaSendoProspecada() ||
+	           	celulaDireita != null && celulaDireita.estaSendoProspecada() ||
+	           	celulaEsquerda != null && celulaEsquerda.estaSendoProspecada();
+}
+
 
 }
