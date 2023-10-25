@@ -1,104 +1,122 @@
 package entidades;
 
+import Enumeracoes.Direcoes;
+
 public class Robo {
 	
-	private String nome;
+	private String nomeEquipe;
+	private String nomeRobo;
 	private Celula posicao;
 	private Direcoes direcao;
+	private float barrisDeHelio;
 	
-	private int tempoSegundos;
-	private float barris;
+	private int tempoAcaoAtual;
+	
 
-	public Robo(String nome, Celula posicao, int tempoSegundos, Direcoes direcao, float barris) {
-		this.nome = nome;
+	public Robo(String nomeEquipe, String nomeRobo, Celula posicao, int tempoAcaoAtual, Direcoes direcao) {
+		this.nomeEquipe = nomeEquipe;
+		this.nomeRobo = nomeRobo;
 		this.posicao = posicao;
-		this.tempoSegundos = tempoSegundos;
+		this.tempoAcaoAtual = tempoAcaoAtual;
 		this.direcao = direcao;
-		this.barris = barris = 0;
+		barrisDeHelio = 0.0f;
 	}
 	
-	public String getobterNome() {
-		return nome;
+	public String getNomeEquipe() {
+		return nomeEquipe;
+	}
+
+
+	public String getNomeRobo() {
+		return nomeRobo;
+	}
+	
+	public double getBarrisDeHelio() {
+		return barrisDeHelio;
 	}
 
 	//sensoriamento
-	public Celula obterPosicao() { //public robo ou public celula ?
-		return posicao;
+	public Coordenadas getPosicao() { //public robo ou public celula ? Celula, sempre
+		//o tipo da variável de retorno
+		return posicao.getCoordenadas();
 	}
 
-	public Celula obterConcetracao() {
+	public float getConcetracao() {
 		//concentracao de helio da celula atual
-		return concentracaoHelio;
+		return posicao.getConcentracaoHelio();
 	}
 
-	public Celula obterRugosidade() {
+	public float getRugosidade() {
 		//rugosidade da celula atual
-		return rugosidade;
+		return posicao.getRugosidade();
 	}
 
-	public Celula obterTempo() {
-		//tempo desde o inicio da prospeccao
-		return tempoSegundos;
+	public Direcoes getDirecao() {
+		return direcao;
 	}
-	/*
-	public float obterConcentracao() {
-	       //logica
-		return concentracao;
+
+	public void setDirecao(Direcoes direcao) {
+		this.direcao = direcao;
+	}
+
+	public int getTempoAcaoAtual() {
+		//tempo desde o inicio da ação
+		return tempoAcaoAtual;
 	}
 	
-	public float obterRugosidade() {
-	      //logica
-		return rugosidade;
+	public void setTempo(int tempo) {
+		this.tempoAcaoAtual = tempo;
 	}
 
-	*/ //rugosidade é da celula
-
-
-
 	//movimentacao---------------
-	public void andar(){
+	public boolean andar(){
         	int coordenadaX = -1;
         	int coordenadaY = -1;
-        	if(sondar == 1) //o robo em prospeccao não pode se movimentar
-			return;
+        	
+        	/*if(sondar == 1) //o robo em prospeccao não pode se movimentar
+        		return;*/
+        	
         	switch(direcao) {
         		case CIMA:
-        			coordenadaX = posicao.getCoordenadaX();
-        			coordenadaY = posicao.getCoordenadaY() - 1;
+        			coordenadaX = posicao.getCoordenadas().getCoordenadaX();
+        			coordenadaY = posicao.getCoordenadas().getCoordenadaY() - 1;
         			break;
         			
         		case BAIXO:
-        			coordenadaX = posicao.getCoordenadaX();
-        			coordenadaY = posicao.getCoordenadaY() + 1;
+        			coordenadaX = posicao.getCoordenadas().getCoordenadaX();
+        			coordenadaY = posicao.getCoordenadas().getCoordenadaY() + 1;
         			break;
         			
         		case DIREITA:
-        			coordenadaX = posicao.getCoordenadaX() + 1;
-        			coordenadaY = posicao.getCoordenadaY();
+        			coordenadaX = posicao.getCoordenadas().getCoordenadaX() + 1;
+        			coordenadaY = posicao.getCoordenadas().getCoordenadaY();
         			break;
         			
         		case ESQUERDA:
-        			coordenadaX = posicao.getCoordenadaX() - 1;
-        			coordenadaY = posicao.getCoordenadaY();
+        			coordenadaX = posicao.getCoordenadas().getCoordenadaX() - 1;
+        			coordenadaY = posicao.getCoordenadas().getCoordenadaY();
         			break;
         			
         		default:
-        			return;
+        			return false;
         	}
         	
-        	if(Terreno.estaDentroDoLimite(coordenadaX, coordenadaY)) {
-        		posicao = Terreno.getCelula(coordenadaX, coordenadaY);
-        		System.out.println("Andou: ["+coordenadaX+", "+coordenadaY+"]");
+        	Coordenadas coordenada = new Coordenadas(coordenadaX, coordenadaY);
+        	
+        	if(Terreno.estaDentroDoLimite(coordenada) & 
+        			(Terreno.celulaEstaVazia(coordenada, nomeEquipe))){
         		
-        	} else {
-        		System.out.println("Ultrapassou a barreira do terreno! ["+coordenadaX+", "+coordenadaY+"]");
+	        		posicao = Terreno.getCelula(coordenada);
+	        		return true;		
+        		}
+        	 else {
+        		return false;
         	}
-        	
     	}
 
     	public void virarParaEsquerda() {
-		if(sondar == 1)//o robo em prospeccao não pode se movimentar
-			return;
+		/*if(sondar == 1)//o robo em prospeccao não pode se movimentar
+			return;*/
     		switch(direcao) {
 	    		case CIMA:
 	    			direcao = Direcoes.ESQUERDA;
@@ -118,9 +136,7 @@ public class Robo {
     		}
     	}
     	
-    	public void virarParaDireita() { //tem que ter o tempo de execução de acordo com a rugosidade
-		if(sondar == 1)//o robo em prospeccao não pode se movimentar
-			return;
+    	public void virarParaDireita() { 
     		switch(direcao) {
 	    		case CIMA:
 	    			direcao = Direcoes.DIREITA;
@@ -139,37 +155,28 @@ public class Robo {
 	    			break;
 			}
     	}
-
     	
-
 	//prospecção-----------------
-    	public void sondar(Celula tempoSegundos, Celula volumeExtracao) {
-		try {
-		Thread.sleep(tempoSegundos.getValor());
-		barris += volumeExtracao.getValor();
-		}
-		//catch (InterruptedException e) {
-   	 	// Lida com exceção, se necessário
-		//}
-
+    	public boolean sondar(Equipe equipe) {
+    		if(Terreno.celulasAdjacentesLivres(posicao.getCoordenadas(), nomeEquipe)) {
+	        	float volume = posicao.volumeDeExtracao();
+	        	barrisDeHelio += volume;
+	        	equipe.setBarrisDeHelioEquipe(equipe.getBarrisDeHelioEquipe() + volume);
+	        	return true;
+    		}
+    		
+    		return false;
    	}
-
-	public boolean celulasAoRedorEstaoSendoProspecadas() {
-    		int coordenadaX = posicao.getCoordenadaX();
-		int coordenadaY = posicao.getCoordenadaY();
-	
-	    	// Verificar as células nas direções adjacentes (CIMA, BAIXO, DIREITA, ESQUERDA)
-	    	Celula celulaCima = Terreno.getCelula(coordenadaX, coordenadaY - 1);
-	    	Celula celulaBaixo = Terreno.getCelula(coordenadaX, coordenadaY + 1);
-	    	Celula celulaDireita = Terreno.getCelula(coordenadaX + 1, coordenadaY);
-	    	Celula celulaEsquerda = Terreno.getCelula(coordenadaX - 1, coordenadaY);
-	
-	   	 // Verificar se alguma das células adjacentes está sendo prospectada
-	   	 return celulaCima != null && celulaCima.estaSendoProspecada() ||
-	           	celulaBaixo != null && celulaBaixo.estaSendoProspecada() ||
-	           	celulaDireita != null && celulaDireita.estaSendoProspecada() ||
-	           	celulaEsquerda != null && celulaEsquerda.estaSendoProspecada();
-}
-
+    	
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("\t"+nomeRobo+" "+posicao.getCoordenadas()+"\n");
+    	sb.append("\tBarris coletados: ");
+    	sb.append(String.format("%.2f", barrisDeHelio)+"\n");
+    	sb.append("\tDireção: apontando para "+direcao.toString()+"\n");
+    	return sb.toString();
+    	
+    }
 
 }

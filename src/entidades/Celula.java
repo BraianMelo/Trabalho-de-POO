@@ -4,73 +4,76 @@ import java.util.Random;
 
 public class Celula {
 	
-	private int coordenadaX;
-	private int coordenadaY;
+	private Coordenadas coordenadas;
 	
 	private float concentracaoHelio;
 	private float coeficienteErroMax;
 	private float coeficienteErroMin;
 	private float rugosidade;
 
-	private float volumeExtracao;
 	
 	public Celula() {}
-
-	public Celula(int coordenadaX, int coordenadaY, float concentracaoHelio, float coeficienteErroMax, float coeficienteErroMax, float rugosidade, float volumeExtracao) {
-		this.coordenadaX = coordenadaX;
-		this.coordenadaY = coordenadaY;
-		this.concentracaoHelio = concentracaoHelio;
-		this.coeficienteErroMax = coeficienteErroMax;
-		this.coeficienteErroMin = coeficienteErroMin;
-		this.rugosidade = rugosidade;
-		this.volumeExtracao = volumeExtracao;
-	}
 	
-	public int getCoordenadaX() {
-		return coordenadaX;
+	public Celula(Coordenadas coordenadas, float concentracaoHelio, 
+			float coeficienteErroMin, float coeficienteErroMax,
+			float rugosidade) {
+		
+		this.coordenadas = coordenadas;
+		this.concentracaoHelio = concentracaoHelio;
+		this.coeficienteErroMin = coeficienteErroMin;
+		this.coeficienteErroMax = coeficienteErroMax;
+		this.rugosidade = rugosidade;
 	}
 
-	public int getCoordenadaY() {
-		return coordenadaY;
+	public Coordenadas getCoordenadas() { 
+		return coordenadas;
 	}
 
 	public float getConcentracaoHelio() {
-		Random gerador = new Random();
-		concentracaoHelio = gerador.nextFloat();
 		return concentracaoHelio;
 	}
 
-	/*public float getCoeficienteErro() {
-		Random gerador = new Random();
-		coeficienteErro = gerador.nextGaussian();
-		return coeficienteErro;
-	}*/
+	public float getCoeficienteErroMax() {
+		return coeficienteErroMax;
+	}
+
 	public float getCoeficienteErroMin() {
-	        return coeficienteErroMin;
+		return coeficienteErroMin;
 	}
 	
-	public float getCoeficienteErroMax() {
-	        return coeficienteErroMax;
-	}
-
 	public float getRugosidade() {
-		Random gerador = new Random();
-		rugosidade = gerador.nextGaussian();
 		return rugosidade;
 	}
+	
+	public String sensoriamento() {
+		Random geradorDeNumeros = new Random();
+		float helioComErro = 0f;
+		
+		while(helioComErro <= 0) {
+			helioComErro = geradorDeNumeros.nextFloat
+				(concentracaoHelio - coeficienteErroMax, 
+				concentracaoHelio + coeficienteErroMax);
+		}
 
-	public VolumeDeExtracao(){
-		volumeExtracao = concetracaoHelio*1.5f;
-		return volumeExtracao;
+		return "Concentração de helio: "+String.format("%.2f", helioComErro);
+	}
+	
+	public void setConcentracaoHelio(float concentracaoHelio) {
+		this.concentracaoHelio = concentracaoHelio;
+	}
+
+	public float volumeDeExtracao(){
+		return concentracaoHelio * 1.5f;
 	}
 	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("["+coordenadaX+","+coordenadaY+"]: ");
+		sb.append(coordenadas+": ");
 		sb.append(String.format("%.2f", concentracaoHelio)+", ");
-		//sb.append(String.format("%.2f", coeficienteErro)+", "); AJUSTAR
+		sb.append(String.format("%.2f", coeficienteErroMin+", "));
+		sb.append(String.format("%.2f", coeficienteErroMax+", "));
 		sb.append(String.format("%.2f", rugosidade));
 		
 		return sb.toString();

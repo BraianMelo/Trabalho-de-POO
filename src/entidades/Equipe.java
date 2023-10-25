@@ -4,31 +4,57 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Equipe {
+	
     private String nome;
-    private List<Robo> robos;
+    private int quantidadeDeRobores;
+    private float barrisDeHelioEquipe;
+    
+    private List<Robo> roboresNaEquipe = new ArrayList<Robo>();;
 
-    public Equipe(String nome) {
-        this.nome = nome;
-        this.robos = new ArrayList<>();
-    }
+    public Equipe(String nome, int quantidadeDeRobores) {
+		this.nome = nome;
+		this.quantidadeDeRobores = quantidadeDeRobores;
+	}
 
-    public String getNome() {
+	public String getNome() {
         return nome;
     }
+	
+    public int getQuantidadeDeRobores() {
+		return quantidadeDeRobores;
+	}
+    
+	public float getBarrisDeHelioEquipe() {
+		return barrisDeHelioEquipe;
+	}
 
-    public void adicionarRobo(Robo robo) {
-        robos.add(robo);
+	public void setBarrisDeHelioEquipe(float barrisDeHelioEquipe) {
+		this.barrisDeHelioEquipe = barrisDeHelioEquipe;
+	}
+
+	public void adicionarRoboNaEquipe(Robo robo) {
+        roboresNaEquipe.add(robo);
     }
 
-    public void removerRobo(Robo robo) {
-        robos.remove(robo);
+    public void removerRoboDaEquipe(Robo robo) {
+    	roboresNaEquipe.remove(robo);
     }
 
     public List<Robo> getRobos() {
-        return robos;
+        return roboresNaEquipe;
     }
 
+    @Override
     public String toString() {
-        return "Equipe: " + nome;
+        StringBuilder sb = new StringBuilder();
+        sb.append("+ "+nome+":\n");
+        sb.append("  Barris coletados: "+String.format("%.2f", barrisDeHelioEquipe)+"\n\n");
+        
+        for(Robo robo: roboresNaEquipe) {
+        	sb.append(robo);
+        	sb.append("\n");
+        }
+        
+        return sb.toString();
     }
 }
