@@ -21,6 +21,17 @@ public class Robo {
 		this.direcao = direcao;
 		barrisDeHelio = 0.0f;
 	}
+    private AcaoRobo acaoAtual;
+
+    public void setAcaoAtual(AcaoRobo acaoAtual) {
+        this.acaoAtual = acaoAtual;
+    }
+
+    public void executarAcao() {
+        if (acaoAtual != null) {
+            acaoAtual.realizarAcao(this);
+        }
+    }
 	
 	public String getNomeEquipe() {
 		return nomeEquipe;
