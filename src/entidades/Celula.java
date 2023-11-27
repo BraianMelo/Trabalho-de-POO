@@ -24,6 +24,30 @@ public class Celula {
 		this.coeficienteErroMax = coeficienteErroMax;
 		this.rugosidade = rugosidade;
 	}
+	/* private Posicao coordenadas;
+    private List<Robo> robos;
+
+    public Celula(int x, int y) {
+        this.coordenadas = new Posicao(x, y);
+        this.robos = new ArrayList<>();
+    }
+
+    public Posicao getCoordenadas() {
+        return coordenadas;
+    }
+
+    public List<Robo> getRobos() {
+        return robos;
+    }
+
+    public void adicionarRobo(Robo robo) {
+        robos.add(robo);
+    }
+
+    public void removerRobo(Robo robo) {
+        robos.remove(robo);
+    }
+}*/
 
 	public Coordenadas getCoordenadas() { 
 		return coordenadas;
