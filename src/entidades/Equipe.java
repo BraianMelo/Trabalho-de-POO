@@ -8,7 +8,24 @@ public class Equipe {
     private String nome;
     private int quantidadeDeRobores;
     private float barrisDeHelioEquipe;
-    
+    /*  private String nome;
+    private Celula posicaoInicial;
+
+    public Equipe(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Celula obterPosicaoInicial() {
+        return posicaoInicial;
+    }
+
+    public void setPosicaoInicial(Celula posicaoInicial) {
+        this.posicaoInicial = posicaoInicial;
+    }*/
     private List<Robo> roboresNaEquipe = new ArrayList<Robo>();;
 
     public Equipe(String nome, int quantidadeDeRobores) {
