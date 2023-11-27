@@ -74,3 +74,69 @@ public class InterfaceUsuario {
         System.out.println("Quantidade de barris de Hélio-3 coletados: " + robob.obterBarris());
     }
 }
+
+/* package entidades;
+
+import java.util.Scanner;
+
+public class InterfaceUsuario {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Terreno terreno = new Terreno();
+
+        Equipe equipeA = new Equipe("Equipe A");
+        Equipe equipeB = new Equipe("Equipe B");
+
+        Robo roboa = new Robo("Robô Equipe A", equipeA, 0, Direcoes.DIREITA);
+        Robo robob = new Robo("Robô Equipe B", equipeB, 0, Direcoes.DIREITA);
+
+        terreno.adicionarRoboNoTerreno(roboa);
+        terreno.adicionarRoboNoTerreno(robob);
+
+        // Como funcionaria o jogo para o usuário (somente o robô A):
+        boolean jogoRodando = true;
+        while (jogoRodando) {
+            System.out.println("Escolha uma ação para " + roboa.getNomeRobo() + ":");
+            System.out.println("w - Andou para frente");
+            System.out.println("a - Girou para a esquerda");
+            System.out.println("d - Girou para a direita");
+            System.out.println("r - Iniciou prospecção");
+
+            char movimento = scanner.next().charAt(0);
+
+            switch (movimento) {
+                case 'w':
+                    roboa.andar();
+                    break;
+                case 'a':
+                    roboa.virarParaEsquerda();
+                    break;
+                case 'd':
+                    roboa.virarParaDireita();
+                    break;
+                case 'r':
+                    roboa.sondar(terreno.getCelula(roboa.getPosicao()));
+                    break;
+                default:
+                    System.out.println("Movimento Inválido");
+            }
+
+            InterfaceUsuario.exibirInformacoesRobo(roboa);
+
+        }
+
+        scanner.close();
+    }
+
+    public static void exibirInformacoesRobo(Robo robo) {
+        System.out.println("Nome da Equipe: " + robo.getEquipe().getNome());
+        System.out.println("Posição do robô: " + robo.getPosicao());
+        System.out.println("Nível de concentração de Hélio-3: " + robo.getConcentracao());
+        System.out.println("Nível de Rugosidade: " + robo.getRugosidade());
+        System.out.println("Tempo desde o início da prospecção: " + robo.getTempo() + " segundos");
+        System.out.println("Quantidade de barris de Hélio-3 coletados: " + robo.getBarrisDeHelio());
+    }
+}
+*/
