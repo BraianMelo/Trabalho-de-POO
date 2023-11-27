@@ -46,6 +46,21 @@ public class Terreno {
 			}	
 		}
 	}
+	/*private Celula[][] celulas;
+
+    public Terreno() {
+        // Inicialização do terreno
+    }
+
+    public Celula getCelula(Posicao posicao) {
+        return celulas[posicao.getX()][posicao.getY()];
+    }
+
+    public void adicionarRoboNoTerreno(Robo robo) {
+        getCelula(robo.getPosicao()).adicionarRobo(robo);
+    }
+}
+*/
 	
 	//Lista de Robores
 	public void adicionarRoboNoTerreno(Robo robo) {
