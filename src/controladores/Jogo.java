@@ -58,8 +58,29 @@ public class Jogo {
 		}
 	}
 	
+    	/*public void realizarComando(char comando, Robo robo) {
+        comando = Character.toUpperCase(comando); // Passa o caractere para maiusculo
+
+        switch (comando) {
+            case 'W':
+                robo.setAcaoAtual(new Andar());
+                break;
+            case 'A':
+                robo.setAcaoAtual(new VirarEsquerda());
+                break;
+            case 'D':
+                robo.setAcaoAtual(new VirarDireita());
+                break;
+            case 'P':
+                robo.setAcaoAtual(new Prospecao());
+                break;
+            default:
+                System.out.println("Esse comando não existe!");
+                break;
+        }
+    }	*/
 	
-	public void realizarComando(char comando, Robo robo) {
+		public void realizarComando(char comando, Robo robo) {
 		comando = Character.toUpperCase(comando); //Passa o caractere para maiusculo
 		int tempo = 0;
 		
@@ -178,3 +199,10 @@ public class Jogo {
 	}
 
 }
+	public void realizarAcoesRobos() {
+        for (Robo robo : Terreno.getRoboresNoTerreno()) {
+            if (robo.getTempoAcaoAtual() == 0) {
+                robo.executarAcao();
+            }
+        }
+    }
