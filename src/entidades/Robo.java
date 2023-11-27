@@ -1,7 +1,24 @@
 package entidades;
 
 import Enumeracoes.Direcoes;
+/*public class Robo {
 
+    private String nomeRobo;
+    private Equipe equipe;
+    private Celula posicao;
+    private Direcoes direcao;
+    private float barrisDeHelio;
+    private int tempoAcaoAtual;
+
+    public Robo(String nomeRobo, Equipe equipe, int tempoAcaoAtual, Direcoes direcao) {
+        this.nomeRobo = nomeRobo;
+        this.equipe = equipe;
+        this.posicao = equipe.obterPosicaoInicial();
+        this.tempoAcaoAtual = tempoAcaoAtual;
+        this.direcao = direcao;
+        barrisDeHelio = 0.0f;
+    }
+*/
 public class Robo {
 	
 	private String nomeEquipe;
@@ -32,6 +49,17 @@ public class Robo {
             acaoAtual.realizarAcao(this);
         }
     }
+/*     public Equipe getEquipe() {
+        return equipe;
+    }
+
+    public float getBarrisDeHelio() {
+        return barrisDeHelio;
+    }
+
+    public int getTempo() {
+        return tempoAcaoAtual;
+    }*/
 	
 	public String getNomeEquipe() {
 		return nomeEquipe;
